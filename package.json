@@ -1,0 +1,29 @@
+{
+  "name": "barbearia-orlando",
+  "version": "1.0.0",
+  "description": "Site institucional profissional para a Barbearia Orlando - Tradição & Estilo",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o"
+  },
+  "keywords": [
+    "barbearia",
+    "barbershop",
+    "website",
+    "landing-page",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Barbearia Orlando",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/orlando-barber.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seu-usuario/orlando-barber/issues"
+  },
+  "homepage": "https://github.com/seu-usuario/orlando-barber#readme"
+}
