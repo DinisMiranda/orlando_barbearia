@@ -1,6 +1,13 @@
 # 🪒 Barbearia Orlando
 
-Site institucional profissional para a Barbearia Orlando - Tradição & Estilo
+> Site institucional profissional para a Barbearia Orlando - Tradição & Estilo
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+
+**Tags:** `barbearia` `barbershop` `website` `landing-page` `html5` `css3` `javascript` `responsive-design` `vintage-design` `git` `documentation`
 
 ## 📋 Sobre o Projeto
 
@@ -137,6 +144,26 @@ Edite as variáveis CSS no arquivo `styles.css`:
 - **Texto Secundário**: `#8A8A8A` (Cinza)
 - **Fundo**: `#FCFBF9` (Bege claro)
 - **Branco**: `#FFFFFF`
+
+## 🏷️ Tags e Topics
+
+Este repositório utiliza as seguintes tags:
+
+- `barbearia` - Negócio de barbearia
+- `barbershop` - Barbearia em inglês
+- `website` - Site web
+- `landing-page` - Página de destino
+- `html5` - HTML5
+- `css3` - CSS3
+- `javascript` - JavaScript
+- `vanilla-javascript` - JavaScript puro
+- `responsive-design` - Design responsivo
+- `vintage-design` - Design vintage
+- `business-website` - Site empresarial
+- `git` - Controle de versão Git
+- `documentation` - Documentação
+
+Para adicionar estas tags no GitHub, consulte o arquivo [.github/TOPICS.md](.github/TOPICS.md)
 
 ## 📄 Licença
 
