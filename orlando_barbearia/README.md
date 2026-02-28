@@ -25,15 +25,28 @@ Site moderno e responsivo desenvolvido para a Barbearia Orlando, combinando desi
 ## 📁 Estrutura do Projeto
 
 ```
-orlando_barber/
+orlando_barbearia/
 │
-├── index.html          # Página principal (landing page)
-├── agendar.html        # Página de agendamento
-├── styles.css          # Estilos globais
-├── script.js           # Scripts JavaScript
-├── README.md           # Documentação do projeto
-├── LICENSE             # Licença MIT
-└── .gitignore          # Arquivos ignorados pelo Git
+├── index.html              # Página principal (landing page)
+├── agendar.html            # Página de agendamento
+├── styles.css              # Estilos globais
+├── script.js               # Scripts JavaScript
+├── package.json            # Configuração do projeto
+│
+├── README.md               # Documentação do projeto
+├── LICENSE                 # Licença MIT
+├── CHANGELOG.md            # Histórico de versões
+├── CONTRIBUTING.md         # Guia de contribuição
+├── CODE_OF_CONDUCT.md      # Código de conduta
+├── SECURITY.md             # Política de segurança
+│
+├── .gitignore              # Arquivos ignorados pelo Git
+├── .editorconfig           # Configuração do editor
+├── .prettierrc             # Formatação de código
+│
+└── .github/
+    ├── ISSUE_TEMPLATE/     # Templates de issues
+    └── pull_request_template.md  # Template de PR
 ```
 
 ## 🛠️ Instalação e Uso
@@ -47,8 +60,8 @@ orlando_barber/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/orlando-barber.git
-cd orlando-barber
+git clone https://github.com/DinisMiranda/orlando-barber.git
+cd orlando-barber/orlando_barbearia
 ```
 
 2. Abra o arquivo `index.html` no navegador ou use um servidor local:
