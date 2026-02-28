@@ -7,7 +7,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-**Tags:** `barbearia` `barbershop` `website` `landing-page` `html5` `css3` `javascript` `responsive-design` `vintage-design` `git` `documentation`
+**Tags:** `barbearia` `barbershop` `website` `landing-page` `html5` `css3` `javascript` `responsive-design` `vintage-design` `git` `documentation` `terminal`
 
 ## 📋 Sobre o Projeto
 
@@ -145,6 +145,17 @@ Edite as variáveis CSS no arquivo `styles.css`:
 - **Fundo**: `#FCFBF9` (Bege claro)
 - **Branco**: `#FFFFFF`
 
+## 📚 Guias de referência pessoal
+
+Guias e documentação de referência utilizados no desenvolvimento deste projeto:
+
+- **terminal**
+- **Git**
+- **Conventional Commits**
+- **documentation**
+
+Tags: `git` `documentation` `terminal`
+
 ## 🏷️ Tags e Topics
 
 Este repositório utiliza as seguintes tags:
@@ -162,6 +173,8 @@ Este repositório utiliza as seguintes tags:
 - `business-website` - Site empresarial
 - `git` - Controle de versão Git
 - `documentation` - Documentação
+- `terminal` - Terminal (guia de referência)
+- `conventional-commits` - Conventional Commits (guia de referência)
 
 Para adicionar estas tags no GitHub, consulte o arquivo [.github/TOPICS.md](.github/TOPICS.md)
 

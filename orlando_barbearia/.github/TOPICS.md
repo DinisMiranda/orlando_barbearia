@@ -18,6 +18,8 @@ vintage-design
 business-website
 git
 documentation
+terminal
+conventional-commits
 ```
 
 ## Como Adicionar Topics no GitHub
