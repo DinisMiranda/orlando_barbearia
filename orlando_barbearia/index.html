@@ -12,360 +12,423 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
   <style>
+    /* ===== DESIGN TOKENS ===== */
     :root, [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
-      --text-hero: clamp(3.2rem, 1rem + 7vw, 7rem);
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+      --text-hero: clamp(3rem,     0.8rem  + 6.5vw,  6.5rem);
 
-      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
-      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
+      --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+      --space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
 
-      --color-bg: #f7f3ee;
-      --color-surface: #fbf8f4;
-      --color-surface-2: #f2ebe3;
-      --color-surface-offset: #e9ddd0;
-      --color-border: #d7c8b8;
-      --color-divider: #dccfc2;
-      --color-text: #221d18;
-      --color-text-muted: #72665c;
-      --color-text-faint: #a39182;
-      --color-text-inverse: #f8f5f1;
-      --color-primary: #815734;
-      --color-primary-hover: #684528;
-      --color-primary-active: #4f331d;
-      --color-primary-highlight: #efe3d6;
-      --color-success: #47623b;
-      --radius-sm: .375rem; --radius-md: .5rem; --radius-lg: .9rem; --radius-xl: 1.25rem; --radius-full: 9999px;
-      --shadow-sm: 0 1px 2px oklch(0.2 0.01 60 / 0.06);
-      --shadow-md: 0 8px 24px oklch(0.2 0.02 50 / 0.12);
-      --shadow-lg: 0 24px 60px oklch(0.1 0.02 40 / 0.18);
-      --content-default: 1120px;
-      --content-wide: 1280px;
-      --font-display: 'Boska', Georgia, serif;
-      --font-body: 'Satoshi', Inter, sans-serif;
-      --transition-interactive: 180ms cubic-bezier(0.16,1,0.3,1);
+      /* Warm amber-brown palette — artisan barber feel */
+      --color-bg:             #f4ede4;
+      --color-surface:        #faf6f1;
+      --color-surface-2:      #fff;
+      --color-surface-offset: #ede4d9;
+      --color-surface-offset-2:#e5d9cc;
+      --color-surface-dynamic:#d9cbbf;
+      --color-divider:        #d0c4b6;
+      --color-border:         #c8baa9;
+      --color-text:           #1e1812;
+      --color-text-muted:     #6b5e52;
+      --color-text-faint:     #a8998c;
+      --color-text-inverse:   #f8f3ee;
+
+      /* Primary — rich amber/cognac */
+      --color-primary:        #8c4a2f;
+      --color-primary-hover:  #72381f;
+      --color-primary-active: #562a16;
+      --color-primary-highlight:#f0ddd2;
+
+      --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.8rem;--radius-xl:1.1rem;--radius-full:9999px;
+      --shadow-sm:0 1px 3px oklch(0.2 0.01 50 / 0.07);
+      --shadow-md:0 6px 20px oklch(0.18 0.02 45 / 0.11);
+      --shadow-lg:0 20px 56px oklch(0.15 0.02 40 / 0.16);
+      --transition-interactive:180ms cubic-bezier(0.16,1,0.3,1);
+      --content-default:1120px;
+      --font-display:'Boska',Georgia,serif;
+      --font-body:'Satoshi','Inter',sans-serif;
     }
 
     [data-theme="dark"] {
-      --color-bg: #151311;
-      --color-surface: #1b1815;
-      --color-surface-2: #221e1a;
-      --color-surface-offset: #2b241e;
-      --color-border: #3f362f;
-      --color-divider: #342d27;
-      --color-text: #efe6dc;
-      --color-text-muted: #b3a699;
-      --color-text-faint: #7f7368;
-      --color-text-inverse: #17120f;
-      --color-primary: #b78554;
-      --color-primary-hover: #cb9a69;
-      --color-primary-active: #8f653e;
-      --color-primary-highlight: #352a20;
-      --color-success: #89a57b;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
-      --shadow-md: 0 10px 30px rgba(0,0,0,.35);
-      --shadow-lg: 0 28px 80px rgba(0,0,0,.5);
+      --color-bg:             #130f0c;
+      --color-surface:        #1a1511;
+      --color-surface-2:      #201a15;
+      --color-surface-offset: #241e18;
+      --color-surface-offset-2:#2a231c;
+      --color-surface-dynamic:#342b22;
+      --color-divider:        #2e2620;
+      --color-border:         #3d342b;
+      --color-text:           #ede4d8;
+      --color-text-muted:     #a08e7f;
+      --color-text-faint:     #6b5e52;
+      --color-text-inverse:   #150f0a;
+      --color-primary:        #c4865a;
+      --color-primary-hover:  #d9986e;
+      --color-primary-active: #a86a40;
+      --color-primary-highlight:#352418;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.28);
+      --shadow-md:0 8px 28px rgba(0,0,0,.36);
+      --shadow-lg:0 24px 72px rgba(0,0,0,.52);
     }
+    @media (prefers-color-scheme:dark){:root:not([data-theme]){--color-bg:#130f0c;--color-surface:#1a1511;--color-surface-2:#201a15;--color-surface-offset:#241e18;--color-border:#3d342b;--color-divider:#2e2620;--color-text:#ede4d8;--color-text-muted:#a08e7f;--color-text-faint:#6b5e52;--color-text-inverse:#150f0a;--color-primary:#c4865a;--color-primary-hover:#d9986e;--color-primary-active:#a86a40;--color-primary-highlight:#352418;--shadow-sm:0 1px 3px rgba(0,0,0,.28);--shadow-md:0 8px 28px rgba(0,0,0,.36);--shadow-lg:0 24px 72px rgba(0,0,0,.52)}}
 
+    /* ===== RESET + BASE ===== */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:6rem}
-    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;scroll-behavior:smooth;scroll-padding-top:5.5rem;hanging-punctuation:first last}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;background:var(--color-bg);color:var(--color-text);overflow-x:hidden}
     img,svg,video{display:block;max-width:100%;height:auto}
     a{color:inherit;text-decoration:none}
     button,input,textarea,select{font:inherit;color:inherit}
+    h1,h2,h3,h4,h5,h6{text-wrap:balance;line-height:1.12}
+    p,li,figcaption{text-wrap:pretty;max-width:72ch}
+    ul[role=list],ol[role=list]{list-style:none}
     :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
-    @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+    ::selection{background:oklch(from var(--color-primary) l c h / 0.22);color:var(--color-text)}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
 
-    .container{width:min(calc(100% - 2rem), var(--content-default));margin-inline:auto}
-    .section{padding-block:clamp(var(--space-16),10vw,var(--space-24))}
+    .container{width:min(calc(100% - 2.5rem),var(--content-default));margin-inline:auto}
+    .section{padding-block:clamp(var(--space-16),9vw,var(--space-24))}
     .eyebrow{font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-text-muted)}
-    .section-heading{display:grid;gap:var(--space-3);margin-bottom:var(--space-10)}
-    .section-heading h2{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.02;font-weight:500;max-width:10ch}
-    .section-heading p{max-width:60ch;color:var(--color-text-muted)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 
-    .site-header{position:sticky;top:0;z-index:100;background:color-mix(in oklab, var(--color-bg) 80%, transparent);backdrop-filter:blur(18px);border-bottom:1px solid color-mix(in oklab, var(--color-text) 10%, transparent)}
-    .header-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:5rem}
-    .brand{display:flex;align-items:center;gap:var(--space-3)}
-    .brand-mark{width:2.5rem;height:2.5rem;color:var(--color-primary)}
-    .brand-text{display:grid;line-height:1}
-    .brand-text strong{font-size:var(--text-sm);letter-spacing:.18em;text-transform:uppercase}
-    .brand-text span{font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
-    .nav{display:flex;align-items:center;gap:var(--space-5)}
-    .nav a{font-size:var(--text-sm);color:var(--color-text-muted)}
-    .nav a:hover{color:var(--color-text)}
-    .header-actions{display:flex;align-items:center;gap:var(--space-3)}
-
-    .theme-toggle,.menu-toggle{display:grid;place-items:center;width:2.75rem;height:2.75rem;border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);border-radius:var(--radius-full);background:var(--color-surface);transition:transform var(--transition-interactive),border-color var(--transition-interactive),background var(--transition-interactive)}
-    .theme-toggle:hover,.menu-toggle:hover{transform:translateY(-1px);border-color:color-mix(in oklab, var(--color-primary) 55%, var(--color-border))}
-    .menu-toggle{display:none}
-
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.85rem 1.25rem;border-radius:var(--radius-full);border:1px solid transparent;font-size:var(--text-sm);font-weight:700;letter-spacing:.02em;transition:transform var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),color var(--transition-interactive)}
+    /* ===== BUTTONS ===== */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:.85rem 1.4rem;border-radius:var(--radius-full);border:1px solid transparent;font-size:var(--text-sm);font-weight:700;letter-spacing:.025em;cursor:pointer;transition:transform var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),color var(--transition-interactive),box-shadow var(--transition-interactive)}
     .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
     .btn-primary{background:var(--color-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-sm)}
-    .btn-primary:hover{background:var(--color-primary-hover)}
-    .btn-secondary{background:transparent;color:var(--color-text);border-color:color-mix(in oklab, var(--color-text) 14%, transparent)}
-    .btn-secondary:hover{background:var(--color-surface)}
+    .btn-primary:hover{background:var(--color-primary-hover);box-shadow:var(--shadow-md)}
+    .btn-secondary{background:transparent;color:var(--color-text);border-color:color-mix(in oklab,var(--color-text) 16%,transparent)}
+    .btn-secondary:hover{background:var(--color-surface);border-color:color-mix(in oklab,var(--color-text) 28%,transparent)}
+    .btn-ghost{background:transparent;color:var(--color-primary)}
+    .btn-ghost:hover{background:var(--color-primary-highlight)}
 
-    .hero{position:relative;overflow:hidden;display:grid;align-items:center;min-height:calc(100dvh - 5rem);padding-block:clamp(1.5rem,3vw,3rem)}
-    .hero::before{content:"";position:absolute;inset:0;background:
-      radial-gradient(circle at 12% 18%, color-mix(in oklab, var(--color-primary) 18%, transparent) 0, transparent 38%),
-      radial-gradient(circle at 88% 14%, color-mix(in oklab, var(--color-text) 8%, transparent) 0, transparent 32%),
-      linear-gradient(180deg, color-mix(in oklab, var(--color-surface) 55%, transparent), transparent 65%);
-      pointer-events:none}
-    .hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(var(--space-6),3vw,var(--space-12));align-items:stretch}
-    .hero-copy{display:grid;gap:var(--space-4);padding-top:0;align-content:center}
-    .hero-copy h1{font-family:var(--font-display);font-size:clamp(2.4rem,1rem + 4.5vw,4.5rem);line-height:.95;font-weight:500;max-width:16ch}
-    .hero-copy p{max-width:56ch;color:var(--color-text-muted);font-size:var(--text-base)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-    .hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-2)}
-    .hero-stat{padding-top:var(--space-3);border-top:1px solid var(--color-divider)}
-    .hero-stat strong{display:block;font-size:var(--text-lg);font-family:var(--font-display);font-weight:500}
-    .hero-stat span{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)}
+    /* ===== HEADER ===== */
+    .site-header{position:sticky;top:0;z-index:100;background:color-mix(in oklab,var(--color-bg) 78%,transparent);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid color-mix(in oklab,var(--color-text) 8%,transparent)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:5rem}
+    .brand{display:flex;align-items:center;gap:var(--space-3);flex-shrink:0}
+    .logo-svg{width:2.25rem;height:2.25rem;color:var(--color-primary);flex-shrink:0}
+    .brand-text{display:grid;gap:.1rem;line-height:1}
+    .brand-text strong{font-size:var(--text-xs);letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+    .brand-text span{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted)}
+    .site-nav{display:flex;align-items:center;gap:var(--space-6)}
+    .site-nav a{font-size:var(--text-sm);color:var(--color-text-muted);transition:color var(--transition-interactive);position:relative}
+    .site-nav a::after{content:"";position:absolute;left:0;right:0;bottom:-.2rem;height:1px;background:var(--color-primary);transform:scaleX(0);transition:transform var(--transition-interactive);transform-origin:left}
+    .site-nav a:hover{color:var(--color-text)}
+    .site-nav a:hover::after{transform:scaleX(1)}
+    .header-actions{display:flex;align-items:center;gap:var(--space-2)}
+    .icon-btn{display:grid;place-items:center;width:2.6rem;height:2.6rem;border:1px solid color-mix(in oklab,var(--color-text) 10%,transparent);border-radius:var(--radius-full);background:var(--color-surface);cursor:pointer;transition:transform var(--transition-interactive),border-color var(--transition-interactive),background var(--transition-interactive)}
+    .icon-btn:hover{transform:translateY(-1px);border-color:color-mix(in oklab,var(--color-primary) 45%,var(--color-border))}
+    .menu-btn{display:none}
 
-    .hero-visual{position:relative;min-height:min(60vh,520px);display:grid;align-items:stretch}
-    .hero-card{position:relative;overflow:hidden;min-height:100%;border-radius:calc(var(--radius-xl) + .5rem);border:1px solid color-mix(in oklab, var(--color-text) 9%, transparent);background:var(--color-surface);box-shadow:var(--shadow-lg)}
-    .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.02) brightness(.72)}
-    .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,12,10,.1), rgba(15,12,10,.7) 72%, rgba(15,12,10,.92))}
-    .hero-badge{position:absolute;left:var(--space-5);top:var(--space-5);z-index:2;padding:.6rem .9rem;border-radius:var(--radius-full);background:color-mix(in oklab, var(--color-bg) 24%, transparent);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:#f8efe7}
-    .hero-panel{position:relative;z-index:2;display:grid;gap:var(--space-2);padding:var(--space-5)}
-    .hero-panel p{max-width:34ch;color:rgba(248,239,231,.8)}
+    /* ===== HERO ===== */
+    .hero{position:relative;overflow:hidden;display:grid;min-height:calc(100dvh - 5rem)}
+    .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+      radial-gradient(ellipse 55% 60% at 8% 20%, color-mix(in oklab,var(--color-primary) 16%,transparent),transparent 60%),
+      radial-gradient(ellipse 40% 50% at 92% 10%, color-mix(in oklab,var(--color-text) 6%,transparent),transparent 55%)}
+    .hero-layout{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(var(--space-8),4vw,var(--space-16));align-items:stretch;padding-block:clamp(var(--space-12),6vw,var(--space-20))}
+    .hero-copy{display:flex;flex-direction:column;justify-content:center;gap:var(--space-5)}
+    .hero-tagline{font-size:var(--text-hero);font-family:var(--font-display);font-weight:500;line-height:.94;letter-spacing:-.01em;max-width:11ch}
+    .hero-tagline em{font-style:italic;color:var(--color-primary)}
+    .hero-desc{max-width:52ch;color:var(--color-text-muted);font-size:var(--text-base)}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);padding-top:var(--space-5);border-top:1px solid var(--color-divider)}
+    .stat-block strong{display:block;font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;color:var(--color-text)}
+    .stat-block span{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted)}
 
-    .quote-band{border-block:1px solid var(--color-divider);background:linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent)}
-    .quote-band .container{padding-block:var(--space-5);display:flex;gap:var(--space-4);align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .quote-band p{font-size:var(--text-lg);font-family:var(--font-display);max-width:34ch}
-    .quote-band span{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.16em;color:var(--color-text-muted)}
+    .hero-visual{position:relative;display:grid}
+    .hero-frame{position:relative;overflow:hidden;border-radius:calc(var(--radius-xl) + .4rem);border:1px solid color-mix(in oklab,var(--color-text) 8%,transparent);box-shadow:var(--shadow-lg);min-height:100%}
+    .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.05) brightness(.68)}
+    .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,10,6,.9) 0%,rgba(15,10,6,.4) 50%,rgba(15,10,6,.08) 100%)}
+    .hero-overlay{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--space-6) var(--space-6)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:var(--radius-full);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,248,238,.85);margin-bottom:var(--space-3)}
+    .hero-caption{font-family:var(--font-display);font-size:var(--text-xl);color:#fff9f2;line-height:1.1;max-width:18ch}
+    .hero-sub{margin-top:.4rem;font-size:var(--text-sm);color:rgba(255,248,238,.7);max-width:30ch}
 
-    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(var(--space-8),4vw,var(--space-16));align-items:start}
-    .about-grid .section-heading h2{max-width:none;font-size:clamp(1.9rem,1.2rem + 2vw,2.9rem)}
-    .about-card{background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10));box-shadow:var(--shadow-md)}
-    .about-card p + p{margin-top:var(--space-4)}
-    .detail-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-8)}
-    .detail-list div{padding-top:var(--space-3);border-top:1px solid var(--color-divider)}
-    .detail-list dt{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:.4rem}
-    .detail-list dd{font-size:var(--text-base)}
+    /* ===== MARQUEE BAND ===== */
+    .marquee-band{overflow:hidden;border-block:1px solid var(--color-divider);background:color-mix(in oklab,var(--color-primary) 7%,var(--color-bg))}
+    .marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .marquee-track:hover{animation-play-state:paused}
+    .marquee-item{padding:var(--space-4) var(--space-8);display:flex;align-items:center;gap:var(--space-3);white-space:nowrap;font-size:var(--text-sm);font-family:var(--font-display);color:var(--color-text-muted)}
+    .marquee-dot{width:.38rem;height:.38rem;border-radius:50%;background:var(--color-primary);flex-shrink:0}
 
-    .editorial-stack{display:grid;gap:var(--space-6);position:sticky;top:6rem;align-self:start}
-    .editorial-photo{overflow:hidden;border-radius:var(--radius-xl);background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent)}
-    .editorial-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;filter:saturate(.85) brightness(.92)}
-    .editorial-note{padding:var(--space-5);background:var(--color-surface-2);border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent);border-radius:var(--radius-lg)}
-    .editorial-note strong{display:block;font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-primary);margin-bottom:.5rem}
+    /* ===== ABOUT ===== */
+    .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(var(--space-8),5vw,var(--space-16));align-items:start}
+    .section-label{display:grid;gap:var(--space-3);margin-bottom:var(--space-8)}
+    .section-label h2{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:500;line-height:1.02;max-width:22ch}
+    .section-label p{max-width:56ch;color:var(--color-text-muted)}
+    .prose-card{background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 9%,transparent);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10));box-shadow:var(--shadow-sm)}
+    .prose-card p+p{margin-top:var(--space-4)}
+    .details-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-top:var(--space-8)}
+    .details-grid dt{font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:.3rem}
+    .details-grid dd{font-size:var(--text-base)}
+    .details-grid > div{padding-top:var(--space-3);border-top:1px solid var(--color-divider)}
+    .visual-stack{display:grid;gap:var(--space-4);position:sticky;top:6rem;align-self:start}
+    .photo-frame{overflow:hidden;border-radius:var(--radius-xl);border:1px solid color-mix(in oklab,var(--color-text) 8%,transparent);aspect-ratio:4/3;box-shadow:var(--shadow-md)}
+    .photo-frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.9);transition:filter .5s ease}
+    .photo-frame:hover img{filter:saturate(.95) brightness(.96)}
+    .aside-note{padding:var(--space-5);background:var(--color-surface-offset);border:1px solid color-mix(in oklab,var(--color-text) 8%,transparent);border-radius:var(--radius-lg)}
+    .aside-note strong{display:block;font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-primary);margin-bottom:.5rem}
+    .aside-note p{color:var(--color-text-muted);font-size:var(--text-sm);max-width:44ch}
 
-    .services-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:var(--space-6)}
-    .services-grid .section-heading h2{max-width:none;font-size:clamp(1.9rem,1.2rem + 2vw,2.9rem)}
-    .service-list{display:grid;gap:var(--space-4)}
-    .service-item{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-4);align-items:start;padding:var(--space-5);background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-lg)}
-    .service-number{font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted);padding-top:.25rem}
-    .service-item h3{font-size:var(--text-lg);line-height:1.1;margin-bottom:.4rem}
-    .service-item p{color:var(--color-text-muted);max-width:42ch}
-    .service-time{white-space:nowrap;font-size:var(--text-sm);color:var(--color-primary);font-weight:700}
-    .service-panel{padding:var(--space-6);border-radius:var(--radius-xl);background:linear-gradient(180deg, color-mix(in oklab, var(--color-primary) 14%, var(--color-surface)), var(--color-surface));border:1px solid color-mix(in oklab, var(--color-primary) 18%, transparent);display:grid;gap:var(--space-5);align-content:start}
-    .service-panel ul{list-style:none;display:grid;gap:var(--space-3);color:var(--color-text-muted)}
-    .service-panel li{padding-left:1.1rem;position:relative}
-    .service-panel li::before{content:"";position:absolute;left:0;top:.65rem;width:.38rem;height:.38rem;border-radius:50%;background:var(--color-primary)}
+    /* ===== SERVICES ===== */
+    .services-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:var(--space-8)}
+    .service-items{display:grid;gap:var(--space-3)}
+    .service-row{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-4);align-items:start;padding:var(--space-5) var(--space-6);background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 9%,transparent);border-radius:var(--radius-lg);transition:box-shadow var(--transition-interactive),transform var(--transition-interactive)}
+    .service-row:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .svc-num{font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-faint);padding-top:.2rem;font-variant-numeric:tabular-nums}
+    .svc-title{font-size:var(--text-lg);line-height:1.1;margin-bottom:.35rem;font-family:var(--font-display);font-weight:500}
+    .svc-desc{color:var(--color-text-muted);font-size:var(--text-sm);max-width:44ch}
+    .svc-time{font-size:var(--text-sm);color:var(--color-primary);font-weight:700;white-space:nowrap;padding-top:.2rem}
+    .services-aside{padding:clamp(var(--space-6),4vw,var(--space-8));background:linear-gradient(160deg,color-mix(in oklab,var(--color-primary) 12%,var(--color-surface)),var(--color-surface));border:1px solid color-mix(in oklab,var(--color-primary) 16%,transparent);border-radius:var(--radius-xl);display:grid;gap:var(--space-5);align-content:start;box-shadow:var(--shadow-sm)}
+    .services-aside h3{font-family:var(--font-display);font-size:var(--text-xl);font-weight:500;line-height:1.05}
+    .services-aside ul{list-style:none;display:grid;gap:var(--space-3)}
+    .services-aside li{padding-left:1.2rem;position:relative;color:var(--color-text-muted);font-size:var(--text-sm)}
+    .services-aside li::before{content:"";position:absolute;left:0;top:.55rem;width:.4rem;height:.4rem;border-radius:50%;background:var(--color-primary)}
 
-    #galeria .section-heading h2{max-width:24ch;font-size:clamp(1.9rem,1.2rem + 2vw,2.9rem)}
-    .gallery-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-6)}
-    .gallery-main,.gallery-side{display:grid;gap:var(--space-6)}
-    .gallery-card{position:relative;overflow:hidden;border-radius:var(--radius-xl);min-height:183px;border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);background:var(--color-surface);box-shadow:var(--shadow-md)}
-    .gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(.9) brightness(.88)}
-    .gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 35%, rgba(10,8,7,.72))}
-    .gallery-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--space-5);color:#f8efe7}
-    .gallery-copy h3{font-size:var(--text-lg);margin-bottom:.2rem}
-    .gallery-copy p{font-size:var(--text-sm);color:rgba(248,239,231,.8);max-width:34ch}
-    .gallery-tall{min-height:390px}
+    /* ===== GALLERY ===== */
+    .gallery-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-5)}
+    .gallery-col{display:grid;gap:var(--space-5)}
+    .gcard{position:relative;overflow:hidden;border-radius:var(--radius-xl);border:1px solid color-mix(in oklab,var(--color-text) 8%,transparent);box-shadow:var(--shadow-md)}
+    .gcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(.88) brightness(.82);transition:filter .5s ease,transform .6s ease}
+    .gcard:hover img{filter:saturate(.95) brightness(.88);transform:scale(1.03)}
+    .gcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,8,5,.85) 0%,transparent 55%)}
+    .gcopy{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:var(--space-5)}
+    .gcopy h3{font-family:var(--font-display);font-size:var(--text-lg);color:#fff9f2;line-height:1.1;margin-bottom:.2rem}
+    .gcopy p{font-size:var(--text-sm);color:rgba(255,249,242,.75);max-width:32ch}
+    .gcard-tall{min-height:420px}
+    .gcard-med{min-height:240px}
 
-    .contact-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-6)}
-    .contact-card,.hours-card{background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10))}
-    .contact-items{display:grid;gap:var(--space-5);margin-top:var(--space-6)}
-    .contact-item{padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
-    .contact-item:last-child{padding-bottom:0;border-bottom:0}
-    .contact-item span{display:block;font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:.4rem}
-    .contact-item a,.contact-item p{font-size:var(--text-lg);max-width:28ch}
-    .hours-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
-    .hours-row{display:grid;grid-template-columns:1fr auto;padding:var(--space-3) 0;border-bottom:1px solid var(--color-divider)}
-    .hours-row:last-child{border-bottom:0}
-    .cta-inline{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    /* ===== CONTACT ===== */
+    .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--space-5)}
+    .contact-card,.hours-card{background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 9%,transparent);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10));box-shadow:var(--shadow-sm)}
+    .contact-card h2{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:500;line-height:1.04;max-width:14ch;margin-block:var(--space-3) var(--space-6)}
+    .contact-list{display:grid;gap:var(--space-5)}
+    .citem{padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+    .citem:last-child{padding-bottom:0;border-bottom:none}
+    .citem label{display:block;font-size:var(--text-xs);letter-spacing:.18em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:.4rem}
+    .citem a,.citem p{font-size:var(--text-lg)}
+    .citem a:hover{color:var(--color-primary)}
+    .contact-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    .hours-card h3{font-family:var(--font-display);font-size:var(--text-lg);font-weight:500;margin-bottom:var(--space-5)}
+    .hours-table{display:grid;gap:0}
+    .hrow{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);padding:var(--space-3) 0;border-bottom:1px solid var(--color-divider);font-size:var(--text-sm)}
+    .hrow:last-child{border-bottom:none}
+    .hrow span{color:var(--color-text-muted)}
+    .hrow strong{font-variant-numeric:tabular-nums}
+    .hours-note{margin-top:var(--space-5);color:var(--color-text-muted);font-size:var(--text-sm);max-width:44ch;line-height:1.6}
 
-    .site-footer{padding-block:var(--space-10);border-top:1px solid var(--color-divider)}
-    .footer-row{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;align-items:center}
-    .footer-row p,.footer-row a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    /* ===== FOOTER ===== */
+    .site-footer{border-top:1px solid var(--color-divider);padding-block:var(--space-8)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+    .footer-brand{display:flex;align-items:center;gap:var(--space-3)}
+    .footer-brand svg{width:1.75rem;height:1.75rem;color:var(--color-primary)}
+    .footer-brand strong{font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase}
+    .footer-links{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .footer-links a{font-size:var(--text-sm);color:var(--color-text-muted);transition:color var(--transition-interactive)}
+    .footer-links a:hover{color:var(--color-text)}
+    .footer-copy{font-size:var(--text-xs);color:var(--color-text-faint)}
 
-    @media (max-width: 980px){
-      .hero-grid,.about-grid,.services-grid,.gallery-layout,.contact-wrap{grid-template-columns:1fr}
-      .hero-visual{min-height:420px}
-      .editorial-stack{position:static}
-      .hero-copy h1{max-width:9ch}
-      .section-heading h2{max-width:none}
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:1000px){
+      .hero-layout,.about-layout,.services-layout,.gallery-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-frame{min-height:400px}
+      .visual-stack{position:static}
+      .hero-stats{grid-template-columns:repeat(3,1fr)}
     }
-
-    @media (max-width: 760px){
-      .menu-toggle{display:grid}
-      .nav{position:absolute;left:1rem;right:1rem;top:calc(100% + .75rem);padding:var(--space-4);background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);display:none;flex-direction:column;align-items:flex-start}
-      .nav.open{display:flex}
-      .header-actions .btn-primary{display:none}
-      .hero-meta,.detail-list{grid-template-columns:1fr}
-      .service-item{grid-template-columns:1fr;gap:var(--space-2)}
-      .service-time{white-space:normal}
-      .footer-row{align-items:flex-start;flex-direction:column}
+    @media (max-width:760px){
+      .menu-btn{display:grid}
+      .site-nav{position:absolute;left:1rem;right:1rem;top:calc(100% + .5rem);flex-direction:column;align-items:flex-start;gap:var(--space-3);background:var(--color-surface);border:1px solid color-mix(in oklab,var(--color-text) 10%,transparent);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-lg);display:none}
+      .site-nav.open{display:flex}
+      .header-actions .btn{display:none}
+      .hero-stats{grid-template-columns:1fr}
+      .details-grid{grid-template-columns:1fr}
+      .service-row{grid-template-columns:1fr;gap:var(--space-2)}
+      .svc-time{padding-top:0}
+      .gallery-grid{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="#topo" aria-label="Barbearia Orlando, voltar ao início">
-        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <path d="M20 10c7 6 17 6 24 0v12c0 7-3 12-12 19-9-7-12-12-12-19V10Z" stroke="currentColor" stroke-width="2.5"/>
-          <path d="M26 20h12M32 20v18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M18 42c3 6 8 12 14 12s11-6 14-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Barbearia Orlando — início">
+        <svg class="logo-svg" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+          <rect x="24" y="6" width="8" height="26" rx="4" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M16 32c0 7 5 13 12 13s12-6 12-13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="18" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
+          <circle cx="38" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M18 24l6-6M38 24l-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <span class="brand-text">
           <strong>Barbearia Orlando</strong>
-          <span>Tradição & precisão</span>
+          <span>Paranhos · Porto</span>
         </span>
       </a>
 
-      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
-        <a href="#galeria">Espaço</a>
-        <a href="#contato">Contacto</a>
+        <a href="#espaco">Espaço</a>
+        <a href="#contacto">Contacto</a>
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar tema claro/escuro">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a class="btn btn-primary" href="#contato">Agendar visita</a>
-        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <a class="btn btn-primary" href="#contacto">Marcar visita</a>
+        <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" data-menu-btn>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
       </div>
     </div>
   </header>
 
   <main id="conteudo">
+
+    <!-- HERO -->
     <section class="hero" id="topo">
-      <div class="container hero-grid">
+      <div class="container hero-layout">
         <div class="hero-copy">
-          <span class="eyebrow">Barbearia tradicional portuguesa · Porto</span>
-          <h1>Cortes com detalhe. Ambiente com carácter.</h1>
-          <p>Barbas e cabelos à moda antiga — com navalha, tesoura ou máquina — numa barbearia de bairro acolhedora e familiar, em Paranhos. Uma reputação construída ao longo dos anos, no atendimento e na qualidade do trabalho.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contato">Marcar horário</a>
+          <span class="eyebrow">Barbearia tradicional · Porto</span>
+          <h1 class="hero-tagline">Arte de <em>fazer</em> boa figura.</h1>
+          <p class="hero-desc">Barbas e cabelos à moda antiga — com navalha, tesoura ou máquina — numa barbearia de bairro acolhedora e familiar, em Paranhos. Uma reputação construída ao longo dos anos, no atendimento e na qualidade do trabalho.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#contacto">Marcar horário</a>
             <a class="btn btn-secondary" href="#servicos">Ver serviços</a>
           </div>
-          <div class="hero-meta" aria-label="Destaques da barbearia">
-            <div class="hero-stat"><strong>Navalha, tesoura, máquina</strong><span>À moda antiga</span></div>
-            <div class="hero-stat"><strong>Negócio de família</strong><span>Pai, filho e avô</span></div>
-            <div class="hero-stat"><strong>Paranhos, Porto</strong><span>Onde estamos</span></div>
+          <div class="hero-stats">
+            <div class="stat-block"><strong>Navalha & tesoura</strong><span>À moda antiga</span></div>
+            <div class="stat-block"><strong>Família</strong><span>Pai, filho e avô</span></div>
+            <div class="stat-block"><strong>Paranhos</strong><span>Porto</span></div>
           </div>
         </div>
-
         <div class="hero-visual">
-          <article class="hero-card">
+          <div class="hero-frame">
             <img src="IMG_3423.png" alt="Interior da Barbearia Orlando: cadeiras clássicas em pele, chão axadrezado e decoração vintage" width="771" height="1019">
-          </article>
+            <div class="hero-overlay">
+              <span class="hero-badge">✦ Barbearia de Bairro</span>
+              <p class="hero-caption">Um lugar onde cada visita conta.</p>
+              <p class="hero-sub">Tradição portuguesa no coração de Paranhos.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="quote-band" aria-label="Mensagem de posicionamento">
-      <div class="container">
-        <p>“Barbas e cabelos à moda antiga.”</p>
-        <span>Tradição portuguesa, ambiente vintage e familiar</span>
+    <!-- MARQUEE -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-dot"></span>Navalha</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Tesoura</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Máquina</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Barba Tradicional</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Barbearia de Bairro</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Paranhos · Porto</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Família Orlando</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Ambiente Vintage</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Navalha</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Tesoura</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Máquina</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Barba Tradicional</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Barbearia de Bairro</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Paranhos · Porto</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Família Orlando</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Ambiente Vintage</span>
       </div>
-    </section>
+    </div>
 
+    <!-- SOBRE -->
     <section class="section" id="sobre">
-      <div class="container about-grid">
+      <div class="container about-layout">
         <div>
-          <div class="section-heading">
+          <div class="section-label">
             <span class="eyebrow">Sobre a casa</span>
             <h2>Uma barbearia de bairro com alma tradicional portuguesa.</h2>
+            <p>Fundada por Orlando Almeida, a Barbearia Orlando é um espaço pequeno, familiar e acolhedor — onde a qualidade do trabalho fala por si há vários anos.</p>
           </div>
-          <div class="about-card">
-            <p>A Barbearia Orlando nasceu das mãos de Orlando Almeida. Depois de anos na construção civil, transformou a adversidade numa oportunidade e abriu, em Paranhos, uma barbearia de bairro pequena e familiar — onde cabem o pai, o filho e o avô.</p>
+          <div class="prose-card">
+            <p>Depois de anos na construção civil, Orlando Almeida transformou a adversidade numa oportunidade e abriu, em Paranhos, uma barbearia de bairro pequena e familiar — onde cabem o pai, o filho e o avô.</p>
             <p>O conceito é o de uma barbearia antiga, tradicional portuguesa: fazem-se barbas e cabelos à moda antiga, com navalha, tesoura ou máquina, num ambiente agradável, acolhedor e animado, com decoração vintage.</p>
-
-            <dl class="detail-list">
-              <div>
-                <dt>Conceito</dt>
-                <dd>Barbearia tradicional portuguesa.</dd>
-              </div>
-              <div>
-                <dt>Técnica</dt>
-                <dd>Navalha, tesoura e máquina.</dd>
-              </div>
-              <div>
-                <dt>Ambiente</dt>
-                <dd>Vintage, acolhedor e familiar.</dd>
-              </div>
-              <div>
-                <dt>Localização</dt>
-                <dd>Paranhos, Porto.</dd>
-              </div>
+            <dl class="details-grid">
+              <div><dt>Conceito</dt><dd>Barbearia tradicional portuguesa.</dd></div>
+              <div><dt>Técnica</dt><dd>Navalha, tesoura e máquina.</dd></div>
+              <div><dt>Ambiente</dt><dd>Vintage, acolhedor e familiar.</dd></div>
+              <div><dt>Localização</dt><dd>Paranhos, Porto.</dd></div>
             </dl>
           </div>
         </div>
-
-        <div class="editorial-stack">
-          <figure class="editorial-photo">
-            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1000&q=80" alt="Barbeiro a trabalhar com precisão num corte masculino" width="1000" height="1250" loading="lazy">
+        <div class="visual-stack">
+          <figure class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80" alt="Barbeiro a trabalhar com precisão num corte masculino clássico" width="900" height="675" loading="lazy">
           </figure>
-          <div class="editorial-note">
+          <div class="aside-note">
             <strong>Negócio de família</strong>
-            A base fiel de clientes que a Barbearia Orlando foi conquistando ao longo dos anos é a prova da competência e da qualidade do trabalho dos seus profissionais.
+            <p>A base fiel de clientes que a Barbearia Orlando foi conquistando ao longo dos anos é a prova da competência e qualidade do trabalho dos seus profissionais.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SERVIÇOS -->
     <section class="section" id="servicos">
-      <div class="container services-grid">
+      <div class="container services-layout">
         <div>
-          <div class="section-heading">
+          <div class="section-label">
             <span class="eyebrow">Serviços</span>
             <h2>Barba e cabelo, com o cuidado de sempre.</h2>
-            <p>Trabalho à moda antiga, sem pressa e adaptado ao estilo de cada cliente — com navalha, tesoura ou máquina.</p>
+            <p>Trabalho à moda antiga, sem pressa e adaptado ao estilo de cada cliente — navalha, tesoura ou máquina.</p>
           </div>
-          <div class="service-list">
-            <article class="service-item">
-              <span class="service-number">01</span>
+          <div class="service-items">
+            <article class="service-row">
+              <span class="svc-num">01</span>
               <div>
-                <h3>Corte clássico</h3>
-                <p>Execução limpa, linhas precisas e acabamento pensado para um visual intemporal.</p>
+                <h3 class="svc-title">Corte clássico</h3>
+                <p class="svc-desc">Execução limpa, linhas precisas e acabamento pensado para um visual intemporal.</p>
               </div>
-              <span class="service-time">~45 min</span>
+              <span class="svc-time">~45 min</span>
             </article>
-            <article class="service-item">
-              <span class="service-number">02</span>
+            <article class="service-row">
+              <span class="svc-num">02</span>
               <div>
-                <h3>Corte moderno</h3>
-                <p>Interpretação atual com textura, degradê e adaptação ao estilo e rotina do cliente.</p>
+                <h3 class="svc-title">Corte moderno</h3>
+                <p class="svc-desc">Interpretação atual com textura, degradê e adaptação ao estilo e rotina do cliente.</p>
               </div>
-              <span class="service-time">~45 min</span>
+              <span class="svc-time">~45 min</span>
             </article>
-            <article class="service-item">
-              <span class="service-number">03</span>
+            <article class="service-row">
+              <span class="svc-num">03</span>
               <div>
-                <h3>Barba e contorno</h3>
-                <p>Desenho preciso, definição e equilíbrio para manter presença sem rigidez excessiva.</p>
+                <h3 class="svc-title">Barba e contorno</h3>
+                <p class="svc-desc">Desenho preciso, definição e equilíbrio para manter presença sem rigidez excessiva.</p>
               </div>
-              <span class="service-time">~30 min</span>
+              <span class="svc-time">~30 min</span>
+            </article>
+            <article class="service-row">
+              <span class="svc-num">04</span>
+              <div>
+                <h3 class="svc-title">Corte & Barba</h3>
+                <p class="svc-desc">Serviço completo para um visual coerente do início ao fim, com atenção ao detalhe total.</p>
+              </div>
+              <span class="svc-time">~75 min</span>
             </article>
           </div>
         </div>
-
-        <aside class="service-panel" aria-label="Notas sobre a experiência">
+        <aside class="services-aside">
           <span class="eyebrow">A experiência Orlando</span>
-          <h3 style="font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.04; font-weight: 500;">Tradição em cada visita.</h3>
+          <h3>Tradição em cada visita.</h3>
           <ul>
             <li>Barba e cabelo à navalha, tesoura ou máquina.</li>
             <li>Ambiente acolhedor, animado e familiar.</li>
@@ -373,120 +436,130 @@
             <li>Profissionais experientes e atentos ao detalhe.</li>
             <li>Clientes fiéis há vários anos.</li>
           </ul>
-          <a class="btn btn-primary" href="#contato">Marcar visita</a>
+          <a class="btn btn-primary" href="#contacto">Marcar visita</a>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="galeria">
+    <!-- ESPAÇO -->
+    <section class="section" id="espaco">
       <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Ambiente</span>
-          <h2>O espaço, o ambiente e o detalhe.</h2>
-          <p>Decoração vintage, ferramentas clássicas e um ambiente acolhedor que se sente assim que se entra na barbearia.</p>
+        <div class="section-label">
+          <span class="eyebrow">O espaço</span>
+          <h2>O ambiente, as ferramentas e o detalhe.</h2>
+          <p>Decoração vintage, ferramentas clássicas e um acolhimento que se sente logo à entrada.</p>
         </div>
-
-        <div class="gallery-layout">
-          <div class="gallery-main">
-            <article class="gallery-card gallery-tall">
-              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80" alt="Cliente com corte masculino moderno numa barbearia premium" width="1200" height="1500" loading="lazy">
-              <div class="gallery-copy">
-                <h3>Precisão visível</h3>
-                <p>Cada corte e cada barba feitos com rigor, técnica e atenção ao detalhe.</p>
-              </div>
+        <div class="gallery-grid">
+          <div class="gallery-col">
+            <article class="gcard gcard-tall">
+              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80" alt="Cliente com corte masculino moderno em barbearia clássica" width="1200" height="1500" loading="lazy">
+              <div class="gcopy"><h3>Precisão visível</h3><p>Cada corte feito com rigor, técnica e atenção ao detalhe.</p></div>
             </article>
           </div>
-          <div class="gallery-side">
-            <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=900&q=80" alt="Máquina de cortar a definir o contorno com precisão" width="900" height="700" loading="lazy">
-              <div class="gallery-copy">
-                <h3>Ferramenta certa</h3>
-                <p>Detalhe, matéria e cuidado na apresentação.</p>
-              </div>
+          <div class="gallery-col">
+            <article class="gcard gcard-med">
+              <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=900&q=80" alt="Detalhe de máquina de cortar com definição precisa do contorno" width="900" height="600" loading="lazy">
+              <div class="gcopy"><h3>Ferramenta certa</h3><p>Detalhe, matéria e cuidado na apresentação.</p></div>
             </article>
-            <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=80" alt="Cadeira de barbeiro clássica em pele, ambiente quente e premium" width="900" height="700" loading="lazy">
-              <div class="gallery-copy">
-                <h3>Atmosfera</h3>
-                <p>Decoração vintage e um ambiente animado, acolhedor e familiar.</p>
-              </div>
+            <article class="gcard gcard-med">
+              <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=80" alt="Cadeira de barbeiro clássica em pele, ambiente quente e vintage" width="900" height="600" loading="lazy">
+              <div class="gcopy"><h3>Atmosfera</h3><p>Decoração vintage, ambiente animado e acolhedor.</p></div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contato">
-      <div class="container contact-wrap">
+    <!-- CONTACTO -->
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
         <article class="contact-card">
           <span class="eyebrow">Contacto</span>
-          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.04; font-weight: 500; margin-top: .5rem; max-width: 14ch;">Passa pela Barbearia Orlando.</h2>
-          <div class="contact-items">
-            <div class="contact-item">
-              <span>Telefone</span>
+          <h2>Passa pela Barbearia Orlando.</h2>
+          <div class="contact-list">
+            <div class="citem">
+              <label>Telefone</label>
               <a href="tel:+351918871659">+351 918 871 659</a>
             </div>
-            <div class="contact-item">
-              <span>Instagram</span>
-              <a href="https://www.instagram.com/barbeariaorlando/" target="_blank" rel="noopener">@barbeariaorlando</a>
+            <div class="citem">
+              <label>Instagram</label>
+              <a href="https://www.instagram.com/barbeariaorlando/" target="_blank" rel="noopener noreferrer">@barbeariaorlando</a>
             </div>
-            <div class="contact-item">
-              <span>Morada</span>
-              <p>Rua Álvaro de Castelões, 222 — 4200-039 Porto</p>
+            <div class="citem">
+              <label>Morada</label>
+              <p>Rua Álvaro de Castelões, 222<br>4200-039 Porto</p>
             </div>
           </div>
-          <div class="cta-inline">
+          <div class="contact-ctas">
             <a class="btn btn-primary" href="tel:+351918871659">Ligar para marcar</a>
-            <a class="btn btn-secondary" href="#topo">Voltar ao topo</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/barbeariaorlando/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </article>
 
         <aside class="hours-card">
-          <span class="eyebrow">Horário</span>
-          <div class="hours-grid" role="list" aria-label="Horário de funcionamento">
-            <div class="hours-row" role="listitem"><span>Segunda a sexta</span><strong>09:00–13:00 · 14:30–19:30</strong></div>
-            <div class="hours-row" role="listitem"><span>Sábado</span><strong>09:00–13:00 · 14:30–18:30</strong></div>
-            <div class="hours-row" role="listitem"><span>Domingo</span><strong>Encerrado</strong></div>
+          <h3>Horário de funcionamento</h3>
+          <div class="hours-table" role="list" aria-label="Horário">
+            <div class="hrow" role="listitem"><span>Segunda a sexta</span><strong>09:00–13:00 · 14:30–19:30</strong></div>
+            <div class="hrow" role="listitem"><span>Sábado</span><strong>09:00–13:00 · 14:30–18:30</strong></div>
+            <div class="hrow" role="listitem"><span>Domingo</span><strong>Encerrado</strong></div>
           </div>
-          <p style="margin-top: var(--space-6); color: var(--color-text-muted); max-width: 44ch;">Para garantir horário, recomendamos contacto por telefone. Atendimento sem pressa e personalizado, à moda antiga.</p>
+          <p class="hours-note">Para garantir horário recomendamos contacto por telefone. Atendimento sem pressa e personalizado, à moda antiga.</p>
         </aside>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-row">
-      <p>Barbearia Orlando — barbearia tradicional portuguesa em Paranhos, Porto.</p>
-      <p><a href="#sobre">Sobre</a> · <a href="#servicos">Serviços</a> · <a href="#contato">Contacto</a></p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+          <rect x="24" y="6" width="8" height="26" rx="4" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M16 32c0 7 5 13 12 13s12-6 12-13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <strong>Barbearia Orlando</strong>
+      </div>
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#espaco">Espaço</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p class="footer-copy">Paranhos, Porto · Barbearia tradicional portuguesa</p>
     </div>
   </footer>
 
   <script>
     (function(){
-      const root = document.documentElement;
-      const toggle = document.querySelector('[data-theme-toggle]');
-      const menuToggle = document.querySelector('[data-menu-toggle]');
-      const nav = document.getElementById('site-nav');
-      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      root.setAttribute('data-theme', theme);
-      const renderIcon = () => {
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
-          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-      };
-      renderIcon();
-      toggle.addEventListener('click', () => {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        renderIcon();
+      const root=document.documentElement;
+      const toggle=document.querySelector('[data-theme-toggle]');
+      const menuBtn=document.querySelector('[data-menu-btn]');
+      const nav=document.getElementById('site-nav');
+      let theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+      root.setAttribute('data-theme',theme);
+      function syncIcon(){
+        if(!toggle)return;
+        toggle.innerHTML=theme==='dark'
+          ?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          :'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      syncIcon();
+      toggle&&toggle.addEventListener('click',()=>{
+        theme=theme==='dark'?'light':'dark';
+        root.setAttribute('data-theme',theme);
+        syncIcon();
       });
-      menuToggle?.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(open));
+      menuBtn&&menuBtn.addEventListener('click',()=>{
+        const open=nav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded',String(open));
+        menuBtn.innerHTML=open
+          ?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+          :'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
       });
-      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav&&nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
         nav.classList.remove('open');
-        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuBtn&&menuBtn.setAttribute('aria-expanded','false');
+        menuBtn&&(menuBtn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>');
       }));
     })();
   </script>
