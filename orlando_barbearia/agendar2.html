@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcação — Barbearia Orlando</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#151311;--surface:#1c1815;--surface-2:#241f1a;--border:#3f362f;--text:#efe6dc;--muted:#b6a799;--primary:#b78554;--primary-2:#8f653e;--radius:1rem;--font-display:'Boska',serif;--font-body:'Satoshi',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:radial-gradient(circle at top left, rgba(183,133,84,.15), transparent 32%), var(--bg);color:var(--text);min-height:100vh;display:grid;place-items:center;padding:1rem}
+    .shell{width:min(100%,900px);display:grid;grid-template-columns:.9fr 1.1fr;background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:1.5rem;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+    .intro,.form{padding:clamp(1.5rem,4vw,3rem)}
+    .intro{background:linear-gradient(180deg, rgba(183,133,84,.16), rgba(183,133,84,.05));display:grid;align-content:space-between;gap:1.5rem}
+    .intro h1{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,4rem);line-height:.95;font-weight:500;max-width:8ch}
+    .intro p{color:var(--muted);max-width:30ch}
+    .info-list{display:grid;gap:1rem;font-size:.95rem;color:var(--muted)}
+    .form h2{font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+    .stack{display:grid;gap:1rem}
+    .row{display:grid;gap:.45rem}
+    label{font-size:.95rem}
+    input,select,textarea{width:100%;background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:.9rem;padding:.95rem 1rem}
+    textarea{min-height:110px;resize:vertical}
+    button,a{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;border-radius:999px;padding:.9rem 1.2rem;font-weight:700;text-decoration:none}
+    button{border:0;background:var(--primary);color:#17120f;cursor:pointer}
+    a{border:1px solid rgba(255,255,255,.12);color:var(--text)}
+    .actions{display:flex;flex-wrap:wrap;gap:.75rem;padding-top:.5rem}
+    .note{font-size:.9rem;color:var(--muted)}
+    @media (max-width:800px){.shell{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <p style="letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;color:var(--muted);margin-bottom:1rem;">Barbearia Orlando</p>
+        <h1>Marcação com um fluxo mais premium.</h1>
+        <p>Uma página simples, escura e elegante, desenhada para encaixar com o novo visual principal.</p>
+      </div>
+      <div class="info-list">
+        <p>Atendimento por horário marcado.</p>
+        <p>Confirmação por telefone ou mensagem.</p>
+        <p>Corte, barba ou serviço combinado.</p>
+      </div>
+    </section>
+    <section class="form">
+      <h2>Pedido de marcação</h2>
+      <form class="stack">
+        <div class="row">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="O seu nome">
+        </div>
+        <div class="row">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="+351 ...">
+        </div>
+        <div class="row">
+          <label for="servico">Serviço</label>
+          <select id="servico" name="servico">
+            <option>Corte clássico</option>
+            <option>Corte moderno</option>
+            <option>Barba e contorno</option>
+            <option>Corte + barba</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="notas">Notas</label>
+          <textarea id="notas" name="notas" placeholder="Ex.: preferência por horário ou observações"></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit">Enviar pedido</button>
+          <a href="index.html">Voltar ao site</a>
+        </div>
+        <p class="note">Página conceptual para o redesign. Pode ser ligada depois a WhatsApp, Formspree ou backend próprio.</p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
